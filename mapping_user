@@ -1,0 +1,14 @@
+#Task
+Evaluate the provided patient data against the policy criteria and make a coverage recommendation, as outlined in the updated system prompt. Focus specifically on the patient's current disease or condition stage and line of therapy being requested, and ensure that the decision rationale clearly explains how the patient's treatment history aligns with the policy criteria for the current request.
+
+#Output Format
+Provide your output as a single JSON object, following the structure specified in the system prompt. Return only the JSON object, nothing else.
+#Instructions
+Follow the detailed instructions provided in the system prompt for evaluating criteria, handling missing or conflicting data, and making a final decision.
+In the "Decision Rationale", provide a comprehensive overview of the patient's case, including a summary of the treatment history in list form, an explanation of how the patient's case relates to the policy criteria, and a restatement of the key reasons for the final coverage decision.
+Ensure that all necessary sub-criteria are met before concluding that a main criterion is satisfied, and pay close attention to the logical operators and relationships between criteria.
+If necessary sub-criteria are not definitively met due to missing, conflicting, or ambiguous data, the decision should be 'Request Additional Information' rather than 'Approved'.
+Pay special attention to any exclusion criteria listed in the policy, as they should generally take precedence over other criteria and lead to a denial recommendation, unless there are compelling reasons to make an exception. Return nothing but the JSON object.
+<input_json>
+{{"policy": "{encoded_policy}", "patient_data":"{patientData}"}}
+</input_json>

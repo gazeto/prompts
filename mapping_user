@@ -8,7 +8,7 @@ Follow the detailed instructions provided in the system prompt for evaluating cr
 In the "Decision Rationale", provide a comprehensive overview of the patient's case, including a summary of the treatment history in list form, an explanation of how the patient's case relates to the policy criteria, and a restatement of the key reasons for the final coverage decision.
 Ensure that all necessary sub-criteria are met before concluding that a main criterion is satisfied, and pay close attention to the logical operators and relationships between criteria.
 If necessary sub-criteria are not definitively met due to missing, conflicting, or ambiguous data, the decision should be 'Request Additional Information' rather than 'Approved'.
-Pay special attention to any exclusion criteria listed in the policy, as they should generally take precedence over other criteria and lead to a denial recommendation, unless there are compelling reasons to make an exception. Return nothing but the JSON object.
+Pay special attention to any exclusion criteria listed in the policy. If an exclusion is definitively met based on the patient data, it should take precedence and lead to a denial. However, if there is no evidence that an exclusion criterion is met, assume it does not apply.
 <input_json>
 {{"policy": "{encoded_policy}", "patient_data":"{patientData}"}}
 </input_json>
